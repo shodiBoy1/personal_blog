@@ -1,0 +1,17 @@
+services:
+  php-apache:
+    build:
+      context: .
+      dockerfile: .docker/Dockerfile
+      container_name: personal_blog
+      volumes:
+        - ./:/var/www/html
+      ports:
+        - 8080:80
+      networks:
+      - blog-network
+
+networks:
+  blog-network:
+    driver: bridge
+        
